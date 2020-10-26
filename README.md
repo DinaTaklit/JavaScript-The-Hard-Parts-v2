@@ -18,6 +18,20 @@ The workshop focus on:
 - Non-technical communication
 - JavaScript and programming experience
 
+## Junior vs Mid-level vs Senoior Engineer
+
+- Junior Engineer takes any features they're given to build, And if they've seen technology or maybe the solution before, they can solve it.
+- Mid-level engineer takes any feature they're given to build and even they've not seen the technology or solution before, they can figure it out because they've learned how to learn, they're problem solving strong.
+- Senior engineer is sombody who can take any given features, and not only just figure out for themselves, but enable the rest of their team to figure it out. Because they have technical communication, the ability to explain what their code is doing to somebody else in their team, in a clear and cordial manner.
+
+## 1. JavaScript principles
+
+### Thread of execution
+
+- When JavaScript code runs, it: Goes through the code line-by-line and runs/ **executes** each line - known as the **thread of execution**
+- Saves **data** like strings and arrays so we can use that data later - in its memory
+- We can even save code (**functions**)
+
 ## Credits
 
 All credits goes for front end master course javascript-hard-parts-v2/ by Will Sentance
