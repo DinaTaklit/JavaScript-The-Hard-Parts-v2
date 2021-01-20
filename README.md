@@ -53,6 +53,15 @@ already seen them!)
 - Finish running the function - JS removes it from call stack
 - Whatever is top of the call stack => that’s the function we’re currently running
 
+## 2. Functions & Callbacks
+
+### 2.1 Callbacks & Higher Order Functions
+
+- Enables powerful pro-level functions like map, filter, reduce (a core aspect of
+functional programming)
+- Makes our code more declarative and readable
+- We can generalize the function to make it reusable
+- 
 ## Credits
 
 All credits goes for front end master course javascript-hard-parts-v2/ by Will Sentance
