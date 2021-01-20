@@ -100,6 +100,45 @@ code to work with data
 - **Pro interview prep**: One of the most popular topics to test in interview both for Codesmith and mid/senior level job interviews
 - **Asynchronous JavaScript**: Callbacks are a core aspect of async JavaScript, and are under-the-hood of promises, async/await
 
+### 2.4 Arrow Function
+
+```javascript
+function multiplyBy2(input) { return input * 2; }
+=>
+const multiplyBy2 = (input) => { return input*2 }
+=>
+const multiplyBy2 = (input) => input*2
+=>
+const multiplyBy2 = input => input*2
+
+const output = multiplyBy2(3) //6
+```
+
+#### Updating our callback function as an arrow function
+
+```javascript
+function copyArrayAndManipulate(array, instructions) {
+ const output = [];
+ for (let i = 0; i < array.length; i++) {
+ output.push(instructions(array[i]));
+ }
+ return output;
+}
+const multiplyBy2 = input => input*2
+const result = copyArrayAndManipulate([1, 2, 3], multiplyBy2);
+```
+
+#### We can even pass in multiplyBy2 directly without a name
+
+```javascript
+const result = copyArrayAndManipulate([1, 2, 3], input => input*2);
+```
+
+#### Anonymous and arrow functions
+
+- Improve immediate legibility of the code
+- Understanding how they’re working under the-hood is vital to avoid confusion
+
 ## Credits
 
 All credits goes for front end master course javascript-hard-parts-v2/ by Will Sentance
