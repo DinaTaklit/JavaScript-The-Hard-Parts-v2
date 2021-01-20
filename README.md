@@ -89,6 +89,17 @@ const result = copyArrayAndManipulate([1, 2, 3], multiplyBy2);
 - Which is our Higher Order Function? => The outer function that takes in a function
 - Which is our Callback Function? The inner function we insert inside the outer function
 
+### 2.3 Higher-order functions
+
+- Takes in a function or passes out a function
+
+#### Callbacks and Higher Order Functions simplify our code and keep it DRY
+
+- **Declarative readable code**: Map, filter, reduce - the most readable way to write
+code to work with data
+- **Pro interview prep**: One of the most popular topics to test in interview both for Codesmith and mid/senior level job interviews
+- **Asynchronous JavaScript**: Callbacks are a core aspect of async JavaScript, and are under-the-hood of promises, async/await
+
 ## Credits
 
 All credits goes for front end master course javascript-hard-parts-v2/ by Will Sentance
