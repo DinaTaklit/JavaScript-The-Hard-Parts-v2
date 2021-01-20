@@ -61,7 +61,34 @@ already seen them!)
 functional programming)
 - Makes our code more declarative and readable
 - We can generalize the function to make it reusable
-- 
+
+### 2.2 Generalizing functions
+
+- "Parameters" (placeholders) mean we don’t need to decide what data to run our functionality on and what exactly is our functionality until we run the function
+- Then provide an actual value ("argument") when we run the function.
+
+Functions in javascript = first class objects
+They can co-exist with and can be treated like any other javascript object
+
+1. Assigned to variables and properties of other objects
+2. Passed as arguments into functions
+3. Returned as values from functions
+
+```javascript
+function copyArrayAndManipulate(array, instructions) {
+ const output = [];
+ for (let i = 0; i < array.length; i++) {
+ output.push(instructions(array[i]));
+ }
+ return output;
+}
+function multiplyBy2(input) {return input * 2;}
+const result = copyArrayAndManipulate([1, 2, 3], multiplyBy2);
+```
+
+- Which is our Higher Order Function? => The outer function that takes in a function
+- Which is our Callback Function? The inner function we insert inside the outer function
+
 ## Credits
 
 All credits goes for front end master course javascript-hard-parts-v2/ by Will Sentance
