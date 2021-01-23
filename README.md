@@ -226,6 +226,30 @@ When a function is defined, it gets a bond to the surrounding Local Memory ("Var
 
 > The **"backpack"** (or **"closure"**) of live data is attached `incrementCounter` (then to `myNewFunction`) through a hidden property known as `[[scope]]` which persists when the inner function is returned out
 
+### Individual backpacks
+
+If we run `outer` again and store the returned `incrementCounter` function definition in "anotherFunction", this new `incrementCounter` function was created in a **new execution context** and therefore has a brand **new independent backpack**
+
+```javascript
+function outer (){
+ let counter = 0;
+ function incrementCounter (){
+ counter ++;
+ }
+ return incrementCounter;
+}
+
+// 1st new individual backpack that will be created
+const myNewFunction = outer();
+myNewFunction();
+myNewFunction();
+
+// 2nd new individual backpack that will be created
+const anotherFunction = outer();
+anotherFunction();
+anotherFunction();
+```
+
 ## Credits
 
 All credits goes for front end master course javascript-hard-parts-v2/ by Will Sentance
