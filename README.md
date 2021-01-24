@@ -350,6 +350,17 @@ setTimeout(printHello,1000);
 console.log("Me first!");
 ```
 
+#### We’re interacting with a world outside of JavaScript now - so we need rules
+
+```javascript
+function printHello(){ console.log("Hello"); }
+function blockFor1Sec(){ //blocks in the JavaScript thread for
+1 sec }
+setTimeout(printHello,0);
+blockFor1Sec()
+console.log("Me first!");
+```
+
 ## Credits
 
 All credits goes for front end master course javascript-hard-parts-v2/ by Will Sentance
