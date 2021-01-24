@@ -401,6 +401,28 @@ a call to a web browser API/feature (e.g. fetch) that’s set up to return promi
 Promises act as a placeholder for the data we expect to get back from the web
 browser feature’s background work
 
+#### then method and functionality to call on completion
+
+Any code we want to run on the returned data must also be saved on the promise
+object
+
+Added using .then method to the hidden property ‘onFulfilment’
+Promise objects will automatically trigger the attached function to run (with its
+input being the returned data
+
+#### But we need to know how our promise-deferred functionality gets back into JavaScript to be run
+
+```javascript
+function display(data){console.log(data)}
+function printHello(){console.log("Hello");}
+function blockFor300ms(){/* blocks js thread for 300ms */}
+setTimeout(printHello, 0);
+const futureData = fetch('https://twitter.com/will/tweets/1')
+futureData.then(display)
+blockFor300ms()
+console.log("Me first!");
+```
+
 ## Credits
 
 All credits goes for front end master course javascript-hard-parts-v2/ by Will Sentance
