@@ -500,6 +500,52 @@ And the functionality I need to have for each user (again simplifying!)
 - increment functionality (there’d be a ton of functions in practice)
 How could I store my data and functionality together in one place?
 
+### 5.1 Object Dot Notation
+
+#### Objects - store functions with their associated data!
+
+This is the principle of encapsulation - and it’s going to transform how we can ‘reason about’ our code
+
+```javascript
+const user1 = {
+ name: "Will",
+ score: 3,
+ increment: function() { user1.score++; }
+};
+user1.increment(); //user1.score -> 4
+```
+
+This is the principle of encapsulation - and it’s going to transform how we can ‘reason about’ our code Let's keep creating our objects. What alternative techniques do we have for creating objects?
+
+#### Creating user2 user dot notation
+
+Declare an empty object and add properties with dot notation
+
+```javascript
+const user2 = {}; //create an empty object
+//assign properties to that object
+user2.name = "Tim";
+user2.score = 6;
+user2.increment = function() {
+ user2.score++;
+};
+```
+
+#### Creating user3 using Object.create
+
+Object.create is going to give us fine-grained control over our object later on
+
+```javascript
+const user3 = Object.create(null);
+user3.name = "Eva";
+user3.score = 9;
+user3.increment = function() {
+ user3.score++;
+};
+```
+
+Our code is getting repetitive, we're breaking our DRY principle. And suppose we have millions of users!
+What could we do?
 ## Credits
 
 All credits goes for front end master course javascript-hard-parts-v2/ by Will Sentance
