@@ -328,6 +328,28 @@ setTimeout(printHello,0);
 console.log("Me first!");
 ```
 
+#### JavaScript is not enough - We need new pieces (some of which aren’t JavaScript at all)
+
+Our core JavaScript engine has 3 main parts:
+
+- Thread of execution
+- Memory/variable environment
+- Call stack
+
+We need to add some new components:
+
+- Web Browser APIs/Node background APIs
+- Promises
+- Event loop, Callback/Task queue and micro task queue
+
+#### ES5 solution: Introducing 'callback functions", and Web Browser APIs
+
+```javascript
+function printHello(){ console.log("Hello"); }
+setTimeout(printHello,1000);
+console.log("Me first!");
+```
+
 ## Credits
 
 All credits goes for front end master course javascript-hard-parts-v2/ by Will Sentance
