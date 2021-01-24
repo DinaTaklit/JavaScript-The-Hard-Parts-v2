@@ -257,6 +257,77 @@ anotherFunction();
 - **Module pattern**: Preserve state for the life of an application without polluting the global namespace
 - **Asynchronous JavaScript**: Callbacks and Promises rely on closure to persist state in an asynchronous environment
 
+## 4. Asynchronous JavaScript & the event loop
+
+### 4.1 Promises, Async & the Event Loop
+
+- Promises - the most signficant ES6 feature
+- Asynchronicity - the feature that makes dynamic web applications possible
+- The event loop - JavaScript’s triage
+- Microtask queue, Callback queue and Web Browser features (APIs)
+
+#### A reminder of how JavaScript executes code
+
+```javascript
+// Single Threaded Execution
+const num = 3;
+function multiplyBy2 (inputNumber){
+const result = inputNumber*2;
+return result;
+}
+const output = multiplyBy2(num);
+const newOutput = multiplyBy2(10);
+```
+
+#### Asynchronicity is the backbone of modern web development in JavaScript yet...
+
+JavaScript is:
+
+- Single threaded (one command runs at a time)
+- Synchronously executed (each line is run in order the code appears)
+
+So what if we have a task:
+
+- Accessing Twitter’s server to get new tweets that takes a long time
+- Code we want to run using those tweets
+
+**Challenge**: We want to wait for the tweets to be stored in tweets so that they’re there
+to run displayTweets on - but no code can run in the meantime
+
+#### Slow function blocks further code running
+
+```javascript
+const tweets = getTweets("http://twitter.com/will/1")
+// ⛔350ms wait while a request is sent to Twitter HQ
+displayTweets(tweets)
+// more code to run
+console.log("I want to runnnn!")
+```
+
+#### What if we try to delay a function directly using setTimeout?
+
+setTimeout is a built in function - its first argument is the function to delay followed by ms to delay by
+
+```javascript
+function printHello(){
+ console.log("Hello");
+}
+setTimeout(printHello,1000);
+console.log("Me first!");
+```
+
+In what order will our console logs appear?
+
+#### So what about a delay of 0ms
+
+```javascript
+function printHello(){
+ console.log("Hello");
+}
+setTimeout(printHello,0);
+console.log("Me first!");
+```
+
 ## Credits
 
 All credits goes for front end master course javascript-hard-parts-v2/ by Will Sentance
