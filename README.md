@@ -259,7 +259,7 @@ anotherFunction();
 
 ## 4. Asynchronous JavaScript & the event loop
 
-### 4.1 Promises, Async & the Event Loop
+### 4.1 Asynchronous JavaScript
 
 - Promises - the most signficant ES6 feature
 - Asynchronicity - the feature that makes dynamic web applications possible
@@ -372,6 +372,34 @@ to run much later
 **Benefits**
 
 - Super explicit once you understand how it works under-the-hood
+
+### 4.2 Promises
+
+#### ES6+ Solution (Promises)
+
+Using two-pronged ‘facade’ functions that both:
+
+- Initiate background web browser work and
+- Return a placeholder object (promise) immediately in JavaScript
+
+#### ES6+ Promises
+
+```javascript
+function display(data){
+ console.log(data)
+}
+const futureData = fetch('https://twitter.com/will/tweets/1')
+futureData.then(display);
+
+console.log("Me first!");
+```
+
+Special objects built into JavaScript that get returned immediately when we make
+a call to a web browser API/feature (e.g. fetch) that’s set up to return promises
+(not all are)
+
+Promises act as a placeholder for the data we expect to get back from the web
+browser feature’s background work
 
 ## Credits
 
