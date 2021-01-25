@@ -622,6 +622,51 @@ All objects have a `__proto__` property by default which defaults to linking to 
 object - Object.prototype full of (somewhat) useful functions
 We get access to it via userFunctionStore’s `__proto__`  property - the chain
 
+### 5.5 this Keyword
+
+#### Declaring & calling a new function inside our "method" increment
+
+```javascript
+function userCreator(name, score) {
+ const newUser = Object.create(userFunctionStore);
+ newUser.name = name;
+ newUser.score = score;
+ return newUser;
+};
+const userFunctionStore = {
+ increment: function() {
+ this.score++;
+ }
+};
+const user1 = userCreator("Will", 3);
+const user2 = userCreator("Tim", 5);
+user1.increment(); 
+```
+
+Let’s start by simplifying (just increment method - written over 3 lines now)
+
+#### Create and invoke a new function (add1) inside increment
+
+```javascript
+function userCreator(name, score) {
+ const newUser = Object.create(userFunctionStore);
+ newUser.name = name;
+ newUser.score = score;
+ return newUser;
+};
+const userFunctionStore = {
+ increment: function() {
+ function add1(){ this.score++; }
+ add1()
+ }
+};
+const user1 = userCreator("Will", 3);
+const user2 = userCreator("Tim", 5);
+user1.increment();
+```
+
+What does this get auto-assigned to? (here it is assigned to user1 onwe we excute increment it will implicity create this keyword and assigned to it the left side which is user1)
+
 ## Credits
 
 All credits goes for front end master course javascript-hard-parts-v2/ by Will Sentance
