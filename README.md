@@ -674,6 +674,30 @@ What does this get auto-assigned to?
 > there is some manual ways to run the function => call or reply or bind.
 > the problem here is that "add1" function does not have "the dot" things call that is why this is not asinged on what is on the left but instead what is in the global. like once we have done user1.increment since there is a "dot" and in the left side there is user so automatically this is assigned to user1.
 
+### 5.6 Arrow Function Scope & this
+
+#### Arrow functions override the normal this rules
+
+```javascript
+function userCreator(name, score) {
+ const newUser = Object.create(userFunctionStore);
+ newUser.name = name;
+ newUser.score = score;
+ return newUser;
+};
+const userFunctionStore = {
+ increment: function() {
+ const add1 = () => { this.score++; }
+ add1()
+ }
+};
+const user1 = userCreator("Will", 3);
+const user2 = userCreator("Tim", 5);
+user1.increment();
+```
+
+> Now our inner function gets its this set by where it was saved - it’s a **lexically scoped** this
+
 ## Credits
 
 All credits goes for front end master course javascript-hard-parts-v2/ by Will Sentance
