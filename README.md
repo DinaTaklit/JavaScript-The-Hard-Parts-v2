@@ -597,6 +597,30 @@ const user2 = userCreator("Tim", 5);
 user1.increment();
 ```
 
+### 5.4 hasOwnProperty Method
+
+#### What if we want to confirm our user1 has the property score
+
+```javascript
+function userCreator (name, score) {
+ const newUser = Object.create(userFunctionStore);
+ newUser.name = name;
+ newUser.score = score;
+ return newUser;
+};
+const userFunctionStore = {
+ increment: function(){this.score++;},
+ login: function(){console.log("Logged in");}
+};
+const user1 = userCreator("Will", 3);
+const user2 = userCreator("Tim", 5);
+user1.hasOwnProperty('score')
+```
+
+We can use the hasOwnProperty method - but where is it? Is it on user1?
+All objects have a `__proto__` property by default which defaults to linking to a big
+object - Object.prototype full of (somewhat) useful functions
+We get access to it via userFunctionStore’s `__proto__`  property - the chain
 
 ## Credits
 
