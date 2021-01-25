@@ -643,6 +643,8 @@ const user2 = userCreator("Tim", 5);
 user1.increment(); 
 ```
 
+What does this get auto-assigned to? (here it is assigned to user1 onwe we excute increment it will implicity create this keyword and assigned to it the left side which is user1)
+
 Let’s start by simplifying (just increment method - written over 3 lines now)
 
 #### Create and invoke a new function (add1) inside increment
@@ -665,7 +667,12 @@ const user2 = userCreator("Tim", 5);
 user1.increment();
 ```
 
-What does this get auto-assigned to? (here it is assigned to user1 onwe we excute increment it will implicity create this keyword and assigned to it the left side which is user1)
+What does this get auto-assigned to?
+
+> (here for add function "this" keyword will be look to the global env rather than tht local memory of increment, the score here will be undefined) Java script phylosophy lol
+> Wan solve this problem by using that in which will recieve this in increment and istead of running in add1 function this.score ++ with run that.score++ a funny way hhh or we can run add1 function and put parents on the end)
+> there is some manual ways to run the function => call or reply or bind.
+> the problem here is that "add1" function does not have "the dot" things call that is why this is not asinged on what is on the left but instead what is in the global. like once we have done user1.increment since there is a "dot" and in the left side there is user so automatically this is assigned to user1.
 
 ## Credits
 
