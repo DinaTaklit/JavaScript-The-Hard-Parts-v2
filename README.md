@@ -788,8 +788,62 @@ user1.increment()
 Faster to write. Often used in practice in professional code
 **Problems**:
 95% of developers have no idea how it works and therefore fail interviews
-We have to upper case first letter of the function so we know it requires ‘new’ to
+We have to **upper case** first letter of the function so we know it requires `new` to
 work!
+
+### 5.9 class Keyword
+
+#### Solution 4: The class ‘syntactic sugar’
+
+We’re writing our shared methods separately from our object `constructor` itself
+(off in the userCreator.prototype object)
+Other languages let us do this all in one place. ES2015 lets us do so too
+
+```javascript
+class UserCreator {
+ constructor (name, score){
+ this.name = name;
+ this.score = score;
+ }
+ increment (){ this.score++; }
+ login (){ console.log("login"); }
+}
+const user1 = new UserCreator("Eva", 9);
+user1.increment();
+```
+
+```javascript
+class UserCreator {
+ constructor (name, score){
+ this.name = name;
+ this.score = score;
+ }
+ // consturctor is replacing this code from the "new" version
+ //  function userCreator(name, score){
+ //  this.name = name;
+ //  this.score = score;
+ // }
+
+ increment (){ this.score++; }
+ login (){ console.log("login"); }
+ // Those two lines above is replacign those 2 line below in from the "new" version
+ //  userCreator.prototype.increment = function(){ this.score++; };
+ //  userCreator.prototype.login = function(){ console.log("login"); };
+}
+const user1 = new UserCreator("Eva", 9);
+user1.increment();
+```
+
+> Very important note: Note that using "this" keyword change nothing under the hood the same phylosphy remain where you use prototype chain or the new version using "new" keyword or using this "class" version. It is only added to make it more readable and easy to use for developer may forget to add the new keyword while creating a new object.
+
+#### Solution 4: The class "syntactic sugar" Pros/Cons
+
+**Benefits**:
+Emerging as a new standard
+Feels more like style of other languages (e.g. Python)
+**Problems**:
+99% of developers have no idea how it works and therefore fail interviews
+But you will not be one of them!
 
 ## Credits
 
