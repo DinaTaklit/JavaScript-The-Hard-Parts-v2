@@ -571,6 +571,33 @@ memory for all our data and functions. But our functions are just copies
 Is there a better way?
 **Benefits**: It's simple and easy to reason about!
 
+### 5.3 Prototype Chain: Solution 2: Using the prototype chain
+
+Store the increment function in just one object and have the interpreter, if it
+doesn't find the function on user1, look up to that object to check if it's there
+
+Link user1 and functionStore so the interpreter, on not finding .increment, makes
+sure to check up in functionStore where it would find it
+
+Make the link with `Object.create()` technique
+
+```javascript
+function userCreator (name, score) {
+ const newUser = Object.create(userFunctionStore);
+ newUser.name = name;
+ newUser.score = score;
+ return newUser;
+};
+const userFunctionStore = {
+ increment: function(){this.score++;},
+ login: function(){console.log("Logged in");}
+};
+const user1 = userCreator("Will", 3);
+const user2 = userCreator("Tim", 5);
+user1.increment();
+```
+
+
 ## Credits
 
 All credits goes for front end master course javascript-hard-parts-v2/ by Will Sentance
