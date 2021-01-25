@@ -546,6 +546,31 @@ user3.increment = function() {
 
 Our code is getting repetitive, we're breaking our DRY principle. And suppose we have millions of users!
 What could we do?
+
+### 5.2 Factory Functions: Solution 1. Generate objects using a function
+
+```javascript
+function userCreator(name, score) {
+ const newUser = {};
+ newUser.name = name;
+ newUser.score = score;
+ newUser.increment = function() {
+ newUser.score++;
+ };
+ return newUser;
+};
+const user1 = userCreator("Will", 3);
+const user2 = userCreator("Tim", 5);
+user1.increment()
+```
+
+#### Solution 1. Generate objects using a function
+
+**Problems**: Each time we create a new user we make space in our computer's
+memory for all our data and functions. But our functions are just copies
+Is there a better way?
+**Benefits**: It's simple and easy to reason about!
+
 ## Credits
 
 All credits goes for front end master course javascript-hard-parts-v2/ by Will Sentance
